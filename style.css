@@ -1,7 +1,8 @@
 :root {
     --bg-color: #0a0a0a;
     --text-color: #ffffff;
-    --accent-color: #3b82f6; /* A refined blue */
+    --accent-color: #3b82f6;
+    /* A refined blue */
     --secondary-text: #a1a1aa;
     --glass-bg: rgba(255, 255, 255, 0.05);
     --glass-border: rgba(255, 255, 255, 0.1);
@@ -46,8 +47,13 @@ body {
 }
 
 @keyframes rotate {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 /* Header */
@@ -64,14 +70,16 @@ header {
 }
 
 .logo {
-    height: 40px;
+    height: 60px;
+    /* Increased from 40px */
     width: auto;
     filter: brightness(1.2);
 }
 
 /* Hero Section */
 .hero {
-    height: 100vh;
+    height: 70vh;
+    /* Reduced from 100vh */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -87,6 +95,7 @@ header {
     letter-spacing: -0.02em;
     max-width: 800px;
     background: linear-gradient(to right, #fff, #a1a1aa);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     margin-bottom: 2rem;
@@ -112,34 +121,12 @@ header {
 }
 
 @keyframes fadeIn {
-    to { opacity: 1; }
+    to {
+        opacity: 1;
+    }
 }
 
-/* Scroll Indicator */
-.scroll-indicator {
-    position: absolute;
-    bottom: 40px;
-    width: 30px;
-    height: 50px;
-    border: 2px solid var(--secondary-text);
-    border-radius: 15px;
-    display: flex;
-    justify-content: center;
-    padding-top: 10px;
-}
-
-.scroll-indicator span {
-    width: 4px;
-    height: 8px;
-    background-color: var(--text-color);
-    border-radius: 2px;
-    animation: scroll 1.5s infinite;
-}
-
-@keyframes scroll {
-    0% { transform: translateY(0); opacity: 1; }
-    100% { transform: translateY(20px); opacity: 0; }
-}
+/* Scroll Indicator Removed */
 
 /* Contact Section */
 .contact-section {
@@ -212,10 +199,10 @@ header {
     border-bottom-color: var(--accent-color);
 }
 
-.form-group input:focus ~ label,
-.form-group textarea:focus ~ label,
-.form-group input:not(:placeholder-shown) ~ label,
-.form-group textarea:not(:placeholder-shown) ~ label {
+.form-group input:focus~label,
+.form-group textarea:focus~label,
+.form-group input:not(:placeholder-shown)~label,
+.form-group textarea:not(:placeholder-shown)~label {
     top: -20px;
     font-size: 0.85rem;
     color: var(--accent-color);
@@ -265,7 +252,7 @@ footer {
     .hero h1 {
         font-size: 2.5rem;
     }
-    
+
     .contact-form {
         padding: 30px 20px;
     }
