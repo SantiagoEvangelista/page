@@ -56,9 +56,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const ctx = canvas.getContext('2d');
     let width, height;
     let nodes = [];
-    const maxNodes = 6; // 4+ nodes as requested
-    const connectionDistance = 300;
-    const nodeColor = 'rgba(220, 220, 220, 0.8)'; // Light color similar to logo/text
+    const maxNodes = 40; // Increased significantly
+    const connectionDistance = 250;
+    const nodeColor = 'rgba(220, 220, 220, 0.8)';
     const lineColor = 'rgba(220, 220, 220, 0.3)';
 
     function resize() {
@@ -75,10 +75,10 @@ document.addEventListener('DOMContentLoaded', () => {
         constructor() {
             this.x = Math.random() * width;
             this.y = Math.random() * height;
-            this.vx = (Math.random() - 0.5) * 0.5; // Slow movement
-            this.vy = (Math.random() - 0.5) * 0.5;
-            this.radius = Math.random() * 2 + 2; // Random size 2-4
-            this.alpha = 0; // Start invisible
+            this.vx = (Math.random() - 0.5) * 0.8; // Slightly faster
+            this.vy = (Math.random() - 0.5) * 0.8;
+            this.radius = Math.random() * 3 + 4; // Larger nodes (4-7px)
+            this.alpha = 0;
             this.targetAlpha = 1;
         }
 
@@ -92,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Fade in
             if (this.alpha < this.targetAlpha) {
-                this.alpha += 0.01;
+                this.alpha += 0.02; // Faster fade in
             }
         }
 
@@ -108,7 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function addNode() {
         if (nodes.length < maxNodes) {
             nodes.push(new Node());
-            setTimeout(addNode, 1000 + Math.random() * 1000); // Random delay 1-2s
+            setTimeout(addNode, 300); // Faster addition
         }
     }
 
