@@ -23,23 +23,46 @@ document.addEventListener('DOMContentLoaded', () => {
     const submitBtn = form.querySelector('.submit-btn');
     const originalBtnText = submitBtn.innerText;
 
-    form.addEventListener('submit', (e) => {
+    // Google Form Config
+    // TODO: Replace with your specific Google Form details
+    const GOOGLE_FORM_URL = 'https://docs.google.com/forms/u/0/d/e/1FAIpQLSfQfUsfEh8feGumwTAU2pby9ZBuJSI1ijVr0_Ue5-MOHNaxeQ/formResponse';
+    const ENTRY_IDS = {
+        name: 'entry.606404527',    // Replace with actual entry ID for Name
+        email: 'entry.70364591',   // Replace with actual entry ID for Email
+        message: 'entry.1391374769'  // Replace with actual entry ID for Message
+    };
+
+    form.addEventListener('submit', async (e) => {
         e.preventDefault();
 
-        // Simulate sending
+        // UI Feedback: Sending
         submitBtn.disabled = true;
         submitBtn.innerText = 'Sending...';
         submitBtn.style.opacity = '0.7';
 
-        setTimeout(() => {
+        const formData = new FormData();
+        formData.append(ENTRY_IDS.name, document.getElementById('name').value);
+        formData.append(ENTRY_IDS.email, document.getElementById('email').value);
+        formData.append(ENTRY_IDS.message, document.getElementById('message').value);
+
+        try {
+            await fetch(GOOGLE_FORM_URL, {
+                method: 'POST',
+                mode: 'no-cors', // Important to avoid CORS errors
+                body: formData
+            });
+
             // Success state
             submitBtn.innerText = 'Message Sent';
             submitBtn.style.backgroundColor = '#22c55e'; // Green
             submitBtn.style.color = '#ffffff';
-
-            // Reset form
             form.reset();
 
+        } catch (error) {
+            console.error('Error submitting form:', error);
+            submitBtn.innerText = 'Error';
+            submitBtn.style.backgroundColor = '#ef4444'; // Red
+        } finally {
             // Reset button after delay
             setTimeout(() => {
                 submitBtn.disabled = false;
@@ -48,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 submitBtn.style.color = '';
                 submitBtn.style.opacity = '1';
             }, 3000);
-        }, 1500);
+        }
     });
 
     // Network Animation
