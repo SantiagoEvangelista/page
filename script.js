@@ -99,7 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
         draw() {
             ctx.beginPath();
             ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-            ctx.fillStyle = `rgba(220, 220, 220, ${this.alpha})`;
+            ctx.fillStyle = `rgba(143, 195, 215, ${this.alpha})`;
             ctx.fill();
         }
     }
