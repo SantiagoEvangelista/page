@@ -32,28 +32,14 @@ body {
     height: 100%;
     z-index: -1;
     background: radial-gradient(circle at 50% 50%, #1a1a1a 0%, #0a0a0a 100%);
-    opacity: 0.8;
 }
 
-.background-animation::after {
-    content: '';
+#networkCanvas {
     position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle at center, rgba(59, 130, 246, 0.05) 0%, transparent 50%);
-    animation: rotate 20s linear infinite;
-}
-
-@keyframes rotate {
-    0% {
-        transform: rotate(0deg);
-    }
-
-    100% {
-        transform: rotate(360deg);
-    }
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
 
 /* Header */
@@ -91,7 +77,8 @@ header {
 
 .hero h1 {
     font-size: 3.5rem;
-    font-weight: 300;
+    font-weight: 700;
+    /* Bold */
     letter-spacing: -0.02em;
     max-width: 800px;
     background: linear-gradient(to right, #fff, #a1a1aa);

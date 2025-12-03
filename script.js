@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     form.addEventListener('submit', (e) => {
         e.preventDefault();
-        
+
         // Simulate sending
         submitBtn.disabled = true;
         submitBtn.innerText = 'Sending...';
@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
             submitBtn.innerText = 'Message Sent';
             submitBtn.style.backgroundColor = '#22c55e'; // Green
             submitBtn.style.color = '#ffffff';
-            
+
             // Reset form
             form.reset();
 
@@ -50,4 +50,104 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 3000);
         }, 1500);
     });
+
+    // Network Animation
+    const canvas = document.getElementById('networkCanvas');
+    const ctx = canvas.getContext('2d');
+    let width, height;
+    let nodes = [];
+    const maxNodes = 6; // 4+ nodes as requested
+    const connectionDistance = 300;
+    const nodeColor = 'rgba(220, 220, 220, 0.8)'; // Light color similar to logo/text
+    const lineColor = 'rgba(220, 220, 220, 0.3)';
+
+    function resize() {
+        width = window.innerWidth;
+        height = window.innerHeight;
+        canvas.width = width;
+        canvas.height = height;
+    }
+
+    window.addEventListener('resize', resize);
+    resize();
+
+    class Node {
+        constructor() {
+            this.x = Math.random() * width;
+            this.y = Math.random() * height;
+            this.vx = (Math.random() - 0.5) * 0.5; // Slow movement
+            this.vy = (Math.random() - 0.5) * 0.5;
+            this.radius = Math.random() * 2 + 2; // Random size 2-4
+            this.alpha = 0; // Start invisible
+            this.targetAlpha = 1;
+        }
+
+        update() {
+            this.x += this.vx;
+            this.y += this.vy;
+
+            // Bounce off edges
+            if (this.x < 0 || this.x > width) this.vx *= -1;
+            if (this.y < 0 || this.y > height) this.vy *= -1;
+
+            // Fade in
+            if (this.alpha < this.targetAlpha) {
+                this.alpha += 0.01;
+            }
+        }
+
+        draw() {
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(220, 220, 220, ${this.alpha})`;
+            ctx.fill();
+        }
+    }
+
+    // Add nodes one by one
+    function addNode() {
+        if (nodes.length < maxNodes) {
+            nodes.push(new Node());
+            setTimeout(addNode, 1000 + Math.random() * 1000); // Random delay 1-2s
+        }
+    }
+
+    // Start adding nodes
+    setTimeout(addNode, 500);
+
+    function animate() {
+        ctx.clearRect(0, 0, width, height);
+
+        // Update and draw nodes
+        nodes.forEach(node => {
+            node.update();
+            node.draw();
+        });
+
+        // Draw connections
+        for (let i = 0; i < nodes.length; i++) {
+            for (let j = i + 1; j < nodes.length; j++) {
+                const dx = nodes[i].x - nodes[j].x;
+                const dy = nodes[i].y - nodes[j].y;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+
+                if (distance < connectionDistance) {
+                    const opacity = 1 - (distance / connectionDistance);
+                    // Use the minimum alpha of the two connected nodes to fade lines in with nodes
+                    const lineAlpha = Math.min(nodes[i].alpha, nodes[j].alpha) * opacity * 0.5;
+
+                    ctx.beginPath();
+                    ctx.moveTo(nodes[i].x, nodes[i].y);
+                    ctx.lineTo(nodes[j].x, nodes[j].y);
+                    ctx.strokeStyle = `rgba(220, 220, 220, ${lineAlpha})`;
+                    ctx.lineWidth = 1;
+                    ctx.stroke();
+                }
+            }
+        }
+
+        requestAnimationFrame(animate);
+    }
+
+    animate();
 });
