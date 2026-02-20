@@ -32,13 +32,84 @@
     <main>
         <section class="hero">
             <div class="hero-content">
-                <h1 class="fade-in-up">Discretion protects everything that matters.</h1>
+                <h1 class="fade-in-up">A reasonably resilient navigation system.</h1>
+                <div class="hero-fix-marker fade-in-delay">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <circle cx="12" cy="12" r="4" stroke="rgba(56,189,248,0.6)" stroke-width="1" fill="none">
+                            <animate attributeName="r" values="4;8;4" dur="3s" repeatCount="indefinite"/>
+                            <animate attributeName="opacity" values="0.6;0.2;0.6" dur="3s" repeatCount="indefinite"/>
+                        </circle>
+                        <line x1="12" y1="2" x2="12" y2="22" stroke="rgba(56,189,248,0.3)" stroke-width="0.5"/>
+                        <line x1="2" y1="12" x2="22" y2="12" stroke="rgba(56,189,248,0.3)" stroke-width="0.5"/>
+                    </svg>
+                </div>
+            </div>
+        </section>
+
+        <section class="manifesto-section">
+            <div class="manifesto-container">
+                <div class="manifesto-item fade-in-scroll">
+                    <span class="manifesto-number">01</span>
+                    <p>Signals are everywhere. GPS is just one of them.</p>
+                </div>
+                <div class="manifesto-item fade-in-scroll">
+                    <span class="manifesto-number">02</span>
+                    <p>When one source fails, dozens remain.</p>
+                </div>
+                <div class="manifesto-item fade-in-scroll">
+                    <span class="manifesto-number">03</span>
+                    <p>We build systems that never stop knowing where they are.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="capabilities-section">
+            <div class="capabilities-container">
+                <div class="capability-card fade-in-scroll">
+                    <div class="capability-icon">
+                        <svg viewBox="0 0 48 48" fill="none" stroke="rgba(56,189,248,0.6)" stroke-width="1.5">
+                            <path d="M24 36 C18 32, 10 28, 10 20 A14 14 0 0 1 38 20 C38 28, 30 32, 24 36Z" opacity="0.3"/>
+                            <circle cx="24" cy="20" r="6"/>
+                            <circle cx="24" cy="20" r="12" stroke-dasharray="3 4"/>
+                        </svg>
+                    </div>
+                    <h3>Signal Exploitation</h3>
+                    <p>Extracting positioning from the ambient electromagnetic environment.</p>
+                </div>
+                <div class="capability-card fade-in-scroll">
+                    <div class="capability-icon">
+                        <svg viewBox="0 0 48 48" fill="none" stroke="rgba(56,189,248,0.6)" stroke-width="1.5">
+                            <polygon points="24,8 40,38 8,38" stroke-dasharray="4 3"/>
+                            <circle cx="24" cy="8" r="3"/>
+                            <circle cx="40" cy="38" r="3"/>
+                            <circle cx="8" cy="38" r="3"/>
+                            <circle cx="24" cy="28" r="2" fill="rgba(56,189,248,0.6)"/>
+                        </svg>
+                    </div>
+                    <h3>Resilient Positioning</h3>
+                    <p>Multi-source fusion that works when primary references fail.</p>
+                </div>
+                <div class="capability-card fade-in-scroll">
+                    <div class="capability-icon">
+                        <svg viewBox="0 0 48 48" fill="none" stroke="rgba(56,189,248,0.6)" stroke-width="1.5">
+                            <rect x="12" y="12" width="24" height="24" rx="3"/>
+                            <circle cx="24" cy="24" r="4"/>
+                            <line x1="20" y1="12" x2="20" y2="36"/>
+                            <line x1="28" y1="12" x2="28" y2="36"/>
+                            <line x1="12" y1="20" x2="36" y2="20"/>
+                            <line x1="12" y1="28" x2="36" y2="28"/>
+                        </svg>
+                    </div>
+                    <h3>Embedded Systems</h3>
+                    <p>Purpose-built hardware for constrained platforms.</p>
+                </div>
             </div>
         </section>
 
         <section class="contact-section" id="contact">
             <div class="container">
-                <h2 class="fade-in-scroll">Get in Touch</h2>
+                <h2 class="fade-in-scroll">Initiate Contact</h2>
+                <p class="contact-preface fade-in-scroll">Clearance isn't required — curiosity is.</p>
                 <form class="contact-form fade-in-scroll" id="contactForm">
                     <div class="form-group">
                         <input type="text" id="name" required placeholder=" ">

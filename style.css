@@ -1,11 +1,11 @@
 :root {
     --bg-color: #0a0a0a;
     --text-color: #ffffff;
-    --accent-color: #3b82f6;
-    /* A refined blue */
+    --accent-color: #38bdf8;
+    --accent-dim: rgba(56, 189, 248, 0.15);
     --secondary-text: #a1a1aa;
-    --glass-bg: rgba(255, 255, 255, 0.05);
-    --glass-border: rgba(255, 255, 255, 0.1);
+    --glass-bg: rgba(255, 255, 255, 0.03);
+    --glass-border: rgba(255, 255, 255, 0.08);
     --font-main: 'Inter', sans-serif;
 }
 
@@ -15,12 +15,28 @@
     box-sizing: border-box;
 }
 
+::selection {
+    background: rgba(56, 189, 248, 0.3);
+    color: #fff;
+}
+
 body {
     font-family: var(--font-main);
     background-color: var(--bg-color);
     color: var(--text-color);
     line-height: 1.6;
     overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+}
+::-webkit-scrollbar-track {
+    background: var(--bg-color);
+}
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 3px;
 }
 
 /* Background Animation */
@@ -93,8 +109,7 @@ nav {
 
 /* Hero Section */
 .hero {
-    height: 70vh;
-    /* Reduced from 100vh */
+    height: 80vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -104,17 +119,42 @@ nav {
     position: relative;
 }
 
+.hero-content {
+    transition: opacity 0.05s linear, transform 0.05s linear;
+}
+
 .hero h1 {
     font-size: 3.5rem;
     font-weight: 300;
-    /* Bold */
     letter-spacing: -0.02em;
     max-width: 800px;
     background: linear-gradient(to right, #fff, #a1a1aa);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.hero-kicker {
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(56, 189, 248, 0.6);
+    margin-bottom: 20px;
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    color: var(--secondary-text);
+    font-weight: 300;
+    max-width: 600px;
+    line-height: 1.7;
+}
+
+/* Fix Marker SVG */
+.hero-fix-marker {
+    margin-top: 0.5rem;
 }
 
 /* Animations */
@@ -142,7 +182,91 @@ nav {
     }
 }
 
-/* Scroll Indicator Removed */
+/* Manifesto Strip */
+.manifesto-section {
+    padding: 80px 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.manifesto-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 60px;
+}
+
+.manifesto-item {
+    text-align: left;
+}
+
+.manifesto-number {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: rgba(56, 189, 248, 0.5);
+    letter-spacing: 0.1em;
+    margin-bottom: 12px;
+    font-variant-numeric: tabular-nums;
+}
+
+.manifesto-item p {
+    font-size: 1.1rem;
+    font-weight: 300;
+    color: var(--secondary-text);
+    line-height: 1.7;
+}
+
+/* Capabilities Triptych */
+.capabilities-section {
+    padding: 100px 20px;
+}
+
+.capabilities-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.capability-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 40px 32px;
+    backdrop-filter: blur(20px);
+    transition: border-color 0.4s ease, transform 0.4s ease;
+}
+
+.capability-card:hover {
+    border-color: rgba(56, 189, 248, 0.2);
+    transform: translateY(-4px);
+}
+
+.capability-icon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 24px;
+}
+
+.capability-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+.capability-card h3 {
+    font-size: 1.15rem;
+    font-weight: 500;
+    margin-bottom: 12px;
+}
+
+.capability-card p {
+    color: var(--secondary-text);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
 
 /* Contact Section */
 .contact-section {
@@ -162,8 +286,19 @@ nav {
 .contact-section h2 {
     font-size: 2.5rem;
     font-weight: 300;
-    margin-bottom: 3rem;
+    margin-bottom: 1rem;
     text-align: center;
+    background: linear-gradient(to right, #fff, #a1a1aa);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.contact-preface {
+    text-align: center;
+    color: var(--secondary-text);
+    font-size: 0.95rem;
+    margin-bottom: 2.5rem;
 }
 
 /* Form Styles */
@@ -242,17 +377,57 @@ nav {
     background-color: #e0e0e0;
 }
 
-/* Hero Subtitle */
-.hero-subtitle {
-    font-size: 1.25rem;
-    color: var(--secondary-text);
+/* Work Section (Join Us page) */
+.work-section {
+    padding: 60px 20px 80px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.work-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.work-section h2 {
+    font-size: 2rem;
     font-weight: 300;
-    max-width: 600px;
+    margin-bottom: 3rem;
+    text-align: center;
+    background: linear-gradient(to right, #fff, #a1a1aa);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.work-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+}
+
+.work-item {
+    padding: 24px 0;
+}
+
+.work-label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: rgba(56, 189, 248, 0.6);
+    margin-bottom: 8px;
+}
+
+.work-item p {
+    font-size: 0.95rem;
+    color: var(--secondary-text);
+    line-height: 1.6;
 }
 
 /* Positions Section */
 .positions-section {
-    padding: 0 20px 100px;
+    padding: 60px 20px 80px;
 }
 
 body:has(.positions-section) .hero {
@@ -265,10 +440,14 @@ body:has(.positions-section) .hero {
 }
 
 .positions-section h2 {
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: 300;
     margin-bottom: 3rem;
     text-align: center;
+    background: linear-gradient(to right, #fff, #a1a1aa);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .position-card {
@@ -278,11 +457,12 @@ body:has(.positions-section) .hero {
     padding: 28px 32px;
     margin-bottom: 20px;
     backdrop-filter: blur(20px);
-    transition: border-color 0.3s ease;
+    transition: border-color 0.3s ease, transform 0.3s ease;
 }
 
 .position-card:hover {
-    border-color: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
 }
 
 .position-header {
@@ -306,12 +486,57 @@ body:has(.positions-section) .hero {
     white-space: nowrap;
 }
 
-.position-card p {
+.position-card > p {
     color: var(--secondary-text);
     font-size: 0.95rem;
     line-height: 1.5;
 }
 
+.position-detail {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.detail-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(56, 189, 248, 0.5);
+    display: block;
+    margin-bottom: 6px;
+}
+
+.position-detail p {
+    font-size: 0.9rem;
+    color: var(--secondary-text);
+    line-height: 1.5;
+}
+
+/* Culture Section */
+.culture-section {
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.culture-container {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.culture-container blockquote {
+    font-size: 1.3rem;
+    font-weight: 300;
+    line-height: 1.8;
+    color: var(--secondary-text);
+    font-style: italic;
+    border-left: 2px solid rgba(56, 189, 248, 0.3);
+    padding-left: 24px;
+    text-align: left;
+}
+
+/* Apply Note */
 .apply-note {
     text-align: center;
     margin-top: 3rem;
@@ -352,18 +577,42 @@ footer {
     transform: translateY(0);
 }
 
+/* Staggered reveal */
+.fade-in-scroll:nth-child(2) { transition-delay: 0.1s; }
+.fade-in-scroll:nth-child(3) { transition-delay: 0.15s; }
+.fade-in-scroll:nth-child(4) { transition-delay: 0.2s; }
+
 /* Responsive */
 @media (max-width: 768px) {
     .hero h1 {
-        font-size: 2.5rem;
+        font-size: 2.2rem;
     }
 
     .hero-subtitle {
         font-size: 1.05rem;
     }
 
+    .hero-kicker {
+        font-size: 0.7rem;
+    }
+
     .contact-form {
         padding: 30px 20px;
+    }
+
+    .manifesto-container {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .capabilities-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .work-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
     }
 
     .position-header {
@@ -374,6 +623,10 @@ footer {
 
     .position-card {
         padding: 22px 20px;
+    }
+
+    .culture-container blockquote {
+        font-size: 1.1rem;
     }
 
     .nav-links {
