@@ -149,7 +149,9 @@ nav {
     color: var(--secondary-text);
     font-weight: 300;
     max-width: 600px;
+    margin: 0 auto;
     line-height: 1.7;
+    text-align: center;
 }
 
 /* Fix Marker SVG */
@@ -433,6 +435,17 @@ nav {
 
 body:has(.positions-section) .hero {
     height: 50vh;
+}
+
+body:has(.positions-section) .hero h1 {
+    font-size: 2.2rem;
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+body:has(.positions-section) .hero-subtitle {
+    margin-top: 1.5rem;
 }
 
 .positions-container {
