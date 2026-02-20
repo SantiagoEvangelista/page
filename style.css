@@ -435,6 +435,7 @@ nav {
 
 body:has(.positions-section) .hero {
     height: 50vh;
+    padding-top: 100px;
 }
 
 body:has(.positions-section) .hero h1 {
