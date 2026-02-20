@@ -71,6 +71,65 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Apply form handling (joinus page)
+    const applyForm = document.getElementById('applyForm');
+    if (applyForm) {
+        const applyBtn = applyForm.querySelector('.submit-btn');
+        const originalApplyText = applyBtn.innerText;
+
+        // Pre-select role when clicking Apply on a position card
+        document.querySelectorAll('.position-apply-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const role = btn.dataset.role;
+                const roleSelect = document.getElementById('role');
+                if (role && roleSelect) {
+                    roleSelect.value = role;
+                }
+            });
+        });
+
+        applyForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            applyBtn.disabled = true;
+            applyBtn.innerText = 'Sending...';
+            applyBtn.style.opacity = '0.7';
+
+            const formData = new FormData();
+            formData.append('entry.606404527', document.getElementById('applyName').value);
+            formData.append('entry.70364591', document.getElementById('applyEmail').value);
+            formData.append('entry.1391374769',
+                '[' + document.getElementById('role').value + '] ' +
+                document.getElementById('applyMessage').value
+            );
+
+            try {
+                await fetch('https://docs.google.com/forms/u/0/d/e/1FAIpQLSfQfUsfEh8feGumwTAU2pby9ZBuJSI1ijVr0_Ue5-MOHNaxeQ/formResponse', {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    body: formData
+                });
+
+                applyBtn.innerText = 'Application Sent';
+                applyBtn.style.backgroundColor = '#22c55e';
+                applyBtn.style.color = '#ffffff';
+                applyForm.reset();
+            } catch (error) {
+                console.error('Error submitting form:', error);
+                applyBtn.innerText = 'Error';
+                applyBtn.style.backgroundColor = '#ef4444';
+            } finally {
+                setTimeout(() => {
+                    applyBtn.disabled = false;
+                    applyBtn.innerText = originalApplyText;
+                    applyBtn.style.backgroundColor = '';
+                    applyBtn.style.color = '';
+                    applyBtn.style.opacity = '1';
+                }, 3000);
+            }
+        });
+    }
+
     // Hero parallax on scroll
     const heroContent = document.querySelector('.hero-content');
     if (heroContent) {
@@ -179,9 +238,9 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             // Update rings
-            const maxRadius = Math.max(width, height) * 0.4;
+            const maxRadius = Math.min(width, height) * 0.2;
             this.rings = this.rings.filter(r => {
-                r.radius += 0.6; // expansion speed
+                r.radius += 1.2;
                 return r.radius < maxRadius;
             });
         }
@@ -192,9 +251,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Draw rings
             for (const ring of this.rings) {
-                const maxRadius = Math.max(width, height) * 0.4;
+                const maxRadius = Math.min(width, height) * 0.2;
                 const life = ring.radius / maxRadius;
-                const ringAlpha = (1 - life) * 0.18 * a;
+                const ringAlpha = (1 - life) * 0.15 * a;
                 ctx.beginPath();
                 ctx.arc(this.x, this.y, ring.radius, 0, Math.PI * 2);
                 ctx.strokeStyle = `rgba(${r}, ${g}, ${b}, ${ringAlpha})`;

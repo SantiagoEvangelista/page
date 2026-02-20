@@ -281,6 +281,7 @@ nav {
 .container {
     width: 100%;
     max-width: 600px;
+    margin: 0 auto;
 }
 
 .contact-section h2 {
@@ -514,26 +515,72 @@ body:has(.positions-section) .hero {
     line-height: 1.5;
 }
 
-/* Culture Section */
-.culture-section {
+.position-apply-btn {
+    display: inline-block;
+    margin-top: 16px;
+    padding: 8px 24px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--accent-color);
+    border: 1px solid var(--accent-color);
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background 0.3s ease, color 0.3s ease;
+    font-family: var(--font-main);
+}
+
+.position-apply-btn:hover {
+    background: var(--accent-color);
+    color: var(--bg-color);
+}
+
+/* Apply Section */
+.apply-section {
     padding: 80px 20px;
-    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.culture-container {
-    max-width: 700px;
-    margin: 0 auto;
-}
-
-.culture-container blockquote {
-    font-size: 1.3rem;
+.apply-section h2 {
+    font-size: 2rem;
     font-weight: 300;
-    line-height: 1.8;
-    color: var(--secondary-text);
-    font-style: italic;
-    border-left: 2px solid rgba(56, 189, 248, 0.3);
-    padding-left: 24px;
-    text-align: left;
+    margin-bottom: 2rem;
+    text-align: center;
+    background: linear-gradient(to right, #fff, #a1a1aa);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.form-group select {
+    width: 100%;
+    padding: 15px 0;
+    font-size: 1rem;
+    color: var(--text-color);
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--secondary-text);
+    outline: none;
+    transition: border-color 0.3s ease;
+    font-family: var(--font-main);
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.form-group select option {
+    background: #1a1a1a;
+    color: var(--text-color);
+}
+
+.form-group select:focus {
+    border-bottom-color: var(--accent-color);
+}
+
+.select-label {
+    top: -20px !important;
+    font-size: 0.85rem !important;
+    color: var(--accent-color) !important;
 }
 
 /* Apply Note */

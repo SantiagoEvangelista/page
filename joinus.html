@@ -76,6 +76,7 @@
                         <span class="detail-label">You'll work with</span>
                         <p>STM32/ARM Cortex platforms, real-time operating systems, RF signal processing pipelines, and custom sensor fusion algorithms.</p>
                     </div>
+                    <a href="#apply" class="position-apply-btn" data-role="Embedded Systems Engineer">Apply</a>
                 </div>
 
                 <div class="position-card fade-in-scroll">
@@ -88,6 +89,7 @@
                         <span class="detail-label">You'll work with</span>
                         <p>High-speed digital design, RF front-end architectures, impedance-controlled PCBs, and SWaP-optimized packaging.</p>
                     </div>
+                    <a href="#apply" class="position-apply-btn" data-role="Hardware Design Engineer">Apply</a>
                 </div>
 
                 <div class="position-card fade-in-scroll">
@@ -100,29 +102,52 @@
                         <span class="detail-label">You'll work with</span>
                         <p>Model-based systems engineering, requirements traceability, interface control documents, and cross-domain integration testing.</p>
                     </div>
+                    <a href="#apply" class="position-apply-btn" data-role="Systems Engineer">Apply</a>
                 </div>
 
                 <div class="apply-note fade-in-scroll">
-                    <p>Don't see your role? The best teams are built by people who define their own contribution.</p>
-                    <a href="index.html#contact" class="submit-btn apply-btn">Start a Conversation</a>
+                    <p>Don't see a fit? Reach out anyway.</p>
+                    <a href="#apply" class="position-apply-btn" data-role="General / Other">Get in Touch</a>
                 </div>
             </div>
         </section>
 
-        <section class="culture-section">
-            <div class="culture-container fade-in-scroll">
-                <blockquote>
-                    We don't hire for job titles. We hire people who see a problem no one else has solved
-                    and feel compelled to solve it. If you've ever built something that worked in a way
-                    no textbook described, we should talk.
-                </blockquote>
+        <section class="apply-section" id="apply">
+            <div class="container">
+                <h2 class="fade-in-scroll">Apply</h2>
+                <form class="contact-form fade-in-scroll" id="applyForm">
+                    <div class="form-group">
+                        <select id="role" required>
+                            <option value="" disabled selected></option>
+                            <option value="Embedded Systems Engineer">Embedded Systems Engineer</option>
+                            <option value="Hardware Design Engineer">Hardware Design Engineer</option>
+                            <option value="Systems Engineer">Systems Engineer</option>
+                            <option value="General / Other">General / Other</option>
+                        </select>
+                        <label for="role" class="select-label">Role</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="applyName" required placeholder=" ">
+                        <label for="applyName">Name</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="applyEmail" required placeholder=" ">
+                        <label for="applyEmail">Email</label>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="applyMessage" required placeholder=" " rows="4"></textarea>
+                        <label for="applyMessage">Tell us about yourself</label>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Application</button>
+                </form>
             </div>
         </section>
+
     </main>
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 Vispo Systems. All rights reserved.</p>
+            <p>&copy; 2026 Vispo Systems. All rights reserved.</p>
         </div>
     </footer>
 
