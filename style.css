@@ -110,6 +110,7 @@ a {
 
 .hero {
     align-self: center;
+    margin-bottom: 15vh;
     padding: 40px 0 72px;
     border-top: 1px solid var(--line);
     max-width: 760px;
