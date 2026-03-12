@@ -1,141 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vispo Systems</title>
+    <meta name="description" content="Vispo Systems develops resilient navigation systems for degraded environments.">
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-    <div class="background-animation">
-        <canvas id="networkCanvas"></canvas>
-    </div>
-
-    <header>
-        <nav>
-            <a href="index.html" class="logo-container">
-                <img src="logoNoText.png" alt="Vispo Systems Logo" class="logo">
+    <main class="page">
+        <header class="site-header">
+            <a href="index.html" class="brand">
+                <img src="logoNoText.png" alt="Vispo Systems" class="brand-mark">
+                <span class="brand-name">Vispo Systems</span>
             </a>
-            <div class="nav-links">
-                <a href="index.html" class="active">Home</a>
-                <a href="joinus.html">Join Us</a>
-            </div>
-        </nav>
-    </header>
+            <nav class="site-nav" aria-label="Primary">
+                <a href="index.html" class="is-active">Home</a>
+                <a href="contact.html">Contact</a>
+                <a href="careers.html">Careers</a>
+            </nav>
+        </header>
 
-    <main>
-        <section class="hero">
-            <div class="hero-content">
-                <h1 class="fade-in-up">A reasonably resilient navigation system.</h1>
-                <div class="hero-fix-marker fade-in-delay">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <circle cx="12" cy="12" r="4" stroke="rgba(56,189,248,0.6)" stroke-width="1" fill="none">
-                            <animate attributeName="r" values="4;8;4" dur="3s" repeatCount="indefinite"/>
-                            <animate attributeName="opacity" values="0.6;0.2;0.6" dur="3s" repeatCount="indefinite"/>
-                        </circle>
-                        <line x1="12" y1="2" x2="12" y2="22" stroke="rgba(56,189,248,0.3)" stroke-width="0.5"/>
-                        <line x1="2" y1="12" x2="22" y2="12" stroke="rgba(56,189,248,0.3)" stroke-width="0.5"/>
-                    </svg>
-                </div>
-            </div>
+        <section class="hero" aria-labelledby="site-title">
+            <h1 id="site-title">Resilient navigation for degraded environments.</h1>
         </section>
 
-        <section class="manifesto-section">
-            <div class="manifesto-container">
-                <div class="manifesto-item fade-in-scroll">
-                    <span class="manifesto-number">01</span>
-                    <p>Navigation systems that work where GPS doesn't.</p>
-                </div>
-                <div class="manifesto-item fade-in-scroll">
-                    <span class="manifesto-number">02</span>
-                    <p>Built on signals that are already there.</p>
-                </div>
-                <div class="manifesto-item fade-in-scroll">
-                    <span class="manifesto-number">03</span>
-                    <p>Algorithms, firmware, Hardware. The full stack.</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="capabilities-section">
-            <div class="capabilities-container">
-                <div class="capability-card fade-in-scroll">
-                    <div class="capability-icon">
-                        <svg viewBox="0 0 48 48" fill="none" stroke="rgba(56,189,248,0.6)" stroke-width="1.5">
-                            <path d="M24 36 C18 32, 10 28, 10 20 A14 14 0 0 1 38 20 C38 28, 30 32, 24 36Z" opacity="0.3"/>
-                            <circle cx="24" cy="20" r="6"/>
-                            <circle cx="24" cy="20" r="12" stroke-dasharray="3 4"/>
-                        </svg>
-                    </div>
-                    <h3>Signal Exploitation</h3>
-                    <p>Extracting positioning from the ambient electromagnetic environment.</p>
-                </div>
-                <div class="capability-card fade-in-scroll">
-                    <div class="capability-icon">
-                        <svg viewBox="0 0 48 48" fill="none" stroke="rgba(56,189,248,0.6)" stroke-width="1.5">
-                            <polygon points="24,8 40,38 8,38" stroke-dasharray="4 3"/>
-                            <circle cx="24" cy="8" r="3"/>
-                            <circle cx="40" cy="38" r="3"/>
-                            <circle cx="8" cy="38" r="3"/>
-                            <circle cx="24" cy="28" r="2" fill="rgba(56,189,248,0.6)"/>
-                        </svg>
-                    </div>
-                    <h3>Resilient Positioning</h3>
-                    <p>Multi-source fusion that works when primary references fail.</p>
-                </div>
-                <div class="capability-card fade-in-scroll">
-                    <div class="capability-icon">
-                        <svg viewBox="0 0 48 48" fill="none" stroke="rgba(56,189,248,0.6)" stroke-width="1.5">
-                            <rect x="12" y="12" width="24" height="24" rx="3"/>
-                            <circle cx="24" cy="24" r="4"/>
-                            <line x1="20" y1="12" x2="20" y2="36"/>
-                            <line x1="28" y1="12" x2="28" y2="36"/>
-                            <line x1="12" y1="20" x2="36" y2="20"/>
-                            <line x1="12" y1="28" x2="36" y2="28"/>
-                        </svg>
-                    </div>
-                    <h3>Embedded Systems</h3>
-                    <p>Purpose-built hardware for constrained platforms.</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="contact-section" id="contact">
-            <div class="container">
-                <h2 class="fade-in-scroll">Get in Touch</h2>
-                <p class="contact-preface fade-in-scroll">Questions, partnerships, or just curious — reach out.</p>
-                <form class="contact-form fade-in-scroll" id="contactForm">
-                    <div class="form-group">
-                        <input type="text" id="name" required placeholder=" ">
-                        <label for="name">Name</label>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" id="email" required placeholder=" ">
-                        <label for="email">Email</label>
-                    </div>
-                    <div class="form-group">
-                        <textarea id="message" required placeholder=" " rows="4"></textarea>
-                        <label for="message">Message</label>
-                    </div>
-                    <button type="submit" class="submit-btn">Send Message</button>
-                </form>
-            </div>
-        </section>
+        <footer class="site-footer">
+            <p>&copy; 2026 Vispo Systems</p>
+        </footer>
     </main>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 Vispo Systems. All rights reserved.</p>
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
 </body>
-
 </html>
