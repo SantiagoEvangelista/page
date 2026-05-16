@@ -65,24 +65,16 @@ a {
 }
 
 .brand-mark {
-    width: 34px;
-    height: 34px;
+    width: 38px;
+    height: 38px;
     object-fit: contain;
     filter: contrast(1.1) brightness(0.14);
 }
 
-.brand-name,
 .site-nav,
 .site-footer,
 .card-label {
     font-family: var(--font-mono);
-}
-
-.brand-name {
-    font-size: 0.84rem;
-    font-weight: 500;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
 }
 
 .site-nav {
