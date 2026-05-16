@@ -300,7 +300,6 @@ a {
         padding: 22px 20px;
     }
 
-    .site-header,
     .site-footer {
         flex-direction: column;
         align-items: flex-start;
